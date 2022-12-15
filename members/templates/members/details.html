@@ -1,0 +1,13 @@
+{% extends "members/layout.html" %}
+
+{% block body %}
+    <h1>Details for {{ firstname }}</h1>
+    <p>First name: {{ firstname }}</p>
+    <p>Last name: {{ lastname }}</p>
+    <a href="{% url 'members:update' id %}"><button>Edit member details</button></a>
+    <a href="{% url 'members:delete' id %}"><button>Delete member</button></a>
+
+    <div>
+        <a href="{% url 'members:index' %}">Home page</a>
+    </div>
+{% endblock body %}

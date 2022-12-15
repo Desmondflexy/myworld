@@ -1,0 +1,26 @@
+﻿{% extends 'members/layout.html' %}
+{% load static %}
+
+{% block body %}
+    <h1>Members</h1>
+    <table border="1" cellpadding="5" cellspacing="5">
+        <thead>
+            <tr>
+                <th>ID</th><th>FIRST NAME</th><th>LAST NAME</th>
+            </tr>
+        </thead>
+        {% for x in mymembers %}
+            <tr>    
+                <td>{{ x.id }}</td>
+                <td><a href="{% url 'members:details' x.id %}">{{ x.firstname }}</a></td>
+                <td><a href="{% url 'members:details' x.id %}">{{ x.lastname }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p><a href="{% url 'members:add' %}">Add new member</a></p>
+
+    <div>
+        <img src="{% static 'members/images/poker.jpg' %}" alt="poker rules">
+    </div>
+{% endblock  %}
+

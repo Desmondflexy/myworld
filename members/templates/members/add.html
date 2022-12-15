@@ -1,0 +1,25 @@
+{% extends 'members/layout.html' %}
+
+{% block body %}
+    <h1>Add new member</h1>
+    <form action="{% url 'members:addRecord' %}" method="post">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label for="firstname">First name: <br></label>
+                <input type="text" id="firstname" name="firstname" autofocus>
+            </li>
+            <li>
+                <label for="lastname">Last name: <br></label>
+                <input type="text" id="lastname" name="lastname">
+            </li>
+            <li>
+                <button>Submit</button>
+            </li>
+        </ul>
+        
+    </form>
+    <div>
+        <a href="{% url 'members:index' %}">Home page</a>
+    </div>
+{% endblock  %}
